@@ -1,13 +1,14 @@
-# ATIVIDADE 4 - Refatorações
+# ATIVIDADE 4 
 **Julia Stahl e Ana Beatriz Faria**
 
-## Extract Method
+## Template Method
 
-##### Objetivo:
-O padrão Extract Method é utilizado para melhorar a legibilidade e reutilização do código, extraindo trechos de código repetitivos ou complexos para um novo método, facilitando a manutenção e a compreensão.
+##### Refatoração aplicada:
+Extraímos a repetição da lógica para um método separado **appendIfTrue()**, tornando o código mais modular, a técnica de refatoração usada é a extract method.
 
-##### Implementação:
-Criamos o método *appendIfTrue()* para evitar código repetitivo e melhorar a organização do código.
+##### Relação com o Padrão de Design:
+O Template Method Pattern define a estrutura geral de um algoritmo e permite que partes específicas sejam implementadas por subclasses ou métodos auxiliares.
+No nosso caso, extraímos a repetição de if (config.includeUppercase) pool.append(UPPERCASE_LETTERS); para um método reutilizável.
 
 Antes: 
 
@@ -17,13 +18,14 @@ Depois:
 
 <img src="https://github.com/user-attachments/assets/c92a05b5-58ca-4a3b-94b7-7885572919a9" width="400">
 
-## Introduce Parameter Object
+## Builder
 
-##### Objetivo:
-O padrão Introduce Parameter Object é aplicado para reduzir a quantidade de parâmetros em um método, agrupando-os dentro de um objeto. Isso melhora a clareza, facilita a evolução do código e evita listas extensas de argumentos.
+##### Refatoração aplicada:
+Criamos a classe **AlphabetConfig** para evitar passar múltiplos parâmetros booleanos ao construtor da classe Alphabet. A técnica de refatoração usada é a Introduce Parameter Object.
 
-##### Implementação:
-Criamos a classe *AlphabetConfig* para agrupar os parâmetros booleanos, reduzindo a quantidade de argumentos passados para os métodos e melhorando a legibilidade do código.
+##### Relação com o Padrão de Design:
+O Builder Pattern (Padrão Construtor) é utilizado quando temos um objeto que precisa ser configurado com muitos parâmetros.
+Embora o AlphabetConfig não seja exatamente um Builder, ele tem a mesma ideia de agrupar parâmetros em um objeto.
 
 Antes: 
 
