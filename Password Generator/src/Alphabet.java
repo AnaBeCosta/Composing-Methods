@@ -11,21 +11,21 @@ public class Alphabet {
 	private final StringBuilder pool;
 
 
-	public Alphabet(boolean uppercaseIncluded, boolean lowercaseIncluded, boolean numbersIncluded, boolean specialCharactersIncluded) {
-		
+	private void appendIfTrue(boolean condition, String characters) {
+		if (condition) pool.append(characters);
+	}
+
+	public Alphabet(AlphabetConfig config) {
 		pool = new StringBuilder();
-		
-		if (uppercaseIncluded) pool.append(UPPERCASE_LETTERS);
-		
-		if (lowercaseIncluded) pool.append(LOWERCASE_LETTERS);
-		
-		if (numbersIncluded) pool.append(NUMBERS);
-		
-		if (specialCharactersIncluded) pool.append(SYMBOLS);
-		
+		appendIfTrue(config.includeUppercase, UPPERCASE_LETTERS);
+		appendIfTrue(config.includeLowercase, LOWERCASE_LETTERS);
+		appendIfTrue(config.includeNumbers, NUMBERS);
+		appendIfTrue(config.includeSymbols, SYMBOLS);
 	}
 	
 	public String getAlphabet() {
 		return pool.toString();
 	}
+
+
 }

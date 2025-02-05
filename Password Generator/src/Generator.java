@@ -10,7 +10,7 @@ public class Generator {
     }
 
     public Generator(boolean IncludeUpper, boolean IncludeLower, boolean IncludeNum, boolean IncludeSym) {
-        alphabet = new Alphabet(IncludeUpper, IncludeLower, IncludeNum, IncludeSym);
+        alphabet = new Alphabet(new AlphabetConfig(IncludeUpper, IncludeLower, IncludeNum, IncludeSym));
     }
 
     public void mainLoop() {
